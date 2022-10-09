@@ -12,7 +12,7 @@ def Player(func):
         return print(n+a)
     return information
 
-
+#@Player
 def Soccer(name, age):
     print(name)
     print(age)
