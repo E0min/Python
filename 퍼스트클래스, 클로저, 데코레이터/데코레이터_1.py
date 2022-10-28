@@ -20,7 +20,6 @@ print("-"*60)
 print("데코레이터 심볼 사용하기")
 print()
 
-
 def trace(func):  # 호출할 함수를 매개변수로 받음
     def wrapper():
         print(func.__name__, '함수 시작')  # __name__으로 함수 이름 출력
@@ -49,6 +48,29 @@ a = trace(hello)
 a() 은 같은 내용을 출력
 '''
 
-#
+print()
+def deco1(f):
+    print('deco1')
 
+def deco2(f):
+    print('deco2')
+
+@deco1
+@deco2
+def hello():
+    print("안녕")
+
+
+def trace(f):
+    def wrapper(a,b):
+        r = f(a,b)
+        print(f'{f.__name__,a,b,r}')
+        return r
+    return wrapper
+
+@trace
+def add(a,b):
+    return a+b
+
+add(10,20)
 
